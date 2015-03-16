@@ -21,8 +21,8 @@ namespace WordCount
 
             // Declare Input and Output schemas
             Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-            // Input contains a tuple with a boolean field
-            inputSchema.Add("cowbell", new List<Type>() { typeof(bool) });
+            // Input contains a tuple with a string field
+            inputSchema.Add("cowbell", new List<Type>() { typeof(string) });
             Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
             // Outbound contains a tuple with a string field (so we can see results)
             outputSchema.Add("default", new List<Type>() { typeof(string) });
@@ -35,11 +35,9 @@ namespace WordCount
 
         public void Execute(SCPTuple tuple)
         {
-            bool cowBell = tuple.GetBoolean(0);
-            if(cowBell)
-            {
-                this.ctx.Emit(new Values("Ding Ding!"));
-            }
+            string cowBell = tuple.GetString(0);
+            this.ctx.Emit(new Values(cowBell));
+            
         }
     }
 }

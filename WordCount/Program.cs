@@ -59,7 +59,7 @@ namespace WordCount
                 new Dictionary<string, List<string>>()
             {
                 {Constants.DEFAULT_STREAM_ID, new List<string>(){"word"}}, // a default stream with a named tuple field
-                {"cowbell", new List<string>(){"cowbell"}} // a named stream with a named tuple field
+                {"cowbells", new List<string>(){"cowbell"}} // a named stream with a named tuple field
             },
                 1).shuffleGrouping("sentences");
 
@@ -79,17 +79,17 @@ namespace WordCount
             {
                 {Constants.DEFAULT_STREAM_ID, new List<string>(){"word", "count"}}
             },
-                1).fieldsGrouping("splitter", new List<int>() { 0 });
+                1).fieldsGrouping("splitter", Constants.DEFAULT_STREAM_ID, new List<int>() { 0 });
 
             // Add the cowbell bolt, which reads from the cowbell stream
             topologyBuilder.SetBolt(
-                "cowbell",
+                "cowbellbolt",
                 CowBell.Get,
                 new Dictionary<string, List<string>>()
                   {
-                      {Constants.DEFAULT_STREAM_ID, new List<string>(){"cowbell"}} // emit a stream so we can see the cowbell
+                      {Constants.DEFAULT_STREAM_ID, new List<string>(){"cowbellout"}} // emit a stream so we can see the cowbell
                   },
-                  1).shuffleGrouping("splitter", "cowbell"); //subscribe to the stream named 'cowbell'
+                  1).shuffleGrouping("splitter", "cowbells"); //subscribe to the stream named 'cowbell'
 
             // Add topology config
             topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()

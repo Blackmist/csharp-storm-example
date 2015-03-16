@@ -28,7 +28,7 @@ namespace WordCount
             // Outbound contains a tuple with a string field (the word)
             outputSchema.Add("default", new List<Type>() { typeof(string) });
             // Another output stream, for cow bells
-            outputSchema.Add("cowbell", new List<Type>() { typeof(bool) });
+            outputSchema.Add("cowbell", new List<Type>() { typeof(string) });
             this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
         }
 
@@ -52,7 +52,7 @@ namespace WordCount
                 if(word=="cow")
                 {
                     //Emit a true to the cowbell stream
-                    this.ctx.Emit("cowbell", new Values(true));
+                    this.ctx.Emit("cowbell", new Values("ding"));
                 }
                 //Emit each word to the default stream
                 this.ctx.Emit(new Values(word));
