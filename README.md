@@ -1,3 +1,5 @@
+NOTE: Work in progress, currently failing.
+
 This is a basic C# Storm topology for Apache Storm on HDInsight clusters (on Microsoft Azure.)
 
 This demonstrates how to create both spouts and bolts, as well as how to emit multiple streams. Here's the basic flow:
