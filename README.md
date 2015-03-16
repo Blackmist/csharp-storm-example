@@ -1,4 +1,4 @@
-NOTE: Work in progress, currently failing.
+#NOTE: Work in progress, currently failing.
 
 This is a basic C# Storm topology for Apache Storm on HDInsight clusters (on Microsoft Azure.)
 
