@@ -26,6 +26,7 @@ namespace WordCount
             Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
             // Outbound contains a tuple with a string field (so we can see results)
             outputSchema.Add("default", new List<Type>() { typeof(string) });
+            this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
         }
 
         public static CowBell Get(Context ctx, Dictionary<string, Object> parms)
