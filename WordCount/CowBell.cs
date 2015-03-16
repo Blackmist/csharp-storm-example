@@ -22,7 +22,7 @@ namespace WordCount
             // Declare Input and Output schemas
             Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
             // Input contains a tuple with a string field
-            inputSchema.Add("cowbell", new List<Type>() { typeof(string) });
+            inputSchema.Add("cowbells", new List<Type>() { typeof(string) });
             Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
             // Outbound contains a tuple with a string field (so we can see results)
             outputSchema.Add("default", new List<Type>() { typeof(string) });
