@@ -1,4 +1,3 @@
-#NOTE: Work in progress, currently failing.
 
 This is a basic C# Storm topology for Apache Storm on HDInsight clusters (on Microsoft Azure.)
 
@@ -10,12 +9,12 @@ This demonstrates how to create both spouts and bolts, as well as how to emit mu
 
     * Each word is emitted to the default stream
 
-    * If the word is 'cow', then a boolean value of `true` is emitted to the 'cowbell' stream
+    * If the word is 'cow', then a string value of `ding` is emitted to the 'cowbells' stream
 
 3. The counter bolt consumes the words, and emits a count of how many times each word has occurred.
 
-4. The cowbell bolt listens for cowbell and emits 'Ding Ding!'
+4. The cowbell bolt listens for cowbells and emits emits the 'ding' to it's default output stream
 
 To build/use, follow the steps in http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-develop-csharp-visual-studio-topology/ to learn how to build/deploy C# topologies to Storm on HDInsight.
 
-NOTE: If you follow through the article above, there's a part about local testing. This doesn't seem to work with multiple streams, as the SCP.NET framework only creates one file locally to emulate streams, and when subsequent components read from it, they get confused on handling multiple streams and throw an exception. This is a local testing only thing however, and should not affect running on a cluster.
+NOTE: If you follow through the article above, there's a part about local testing. This doesn't seem to work with multiple streams, as the SCP.NET framework returns an exception complaining about the streams.
