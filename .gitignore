@@ -6,6 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*/SubmitConfig.xml
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -17,7 +18,8 @@
 [Rr]eleases/
 x64/
 x86/
-build/
+# Because SCP.NET bits use a folder named build, we have to keep it
+#build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -135,7 +137,8 @@ publish/
 *.publishproj
 
 # NuGet Packages
-*.nupkg
+# Because SCP.NET contains a .nupkg, we're keeping it too
+#*.nupkg
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except build/, which is used as an MSBuild target.
@@ -194,6 +197,3 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
-
-# Storm Submit information
-SubmitConfig.xml

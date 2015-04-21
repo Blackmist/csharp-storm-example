@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="Counter.cs" />
     <Compile Include="CowBell.cs" />
-    <Compile Include="LocalTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Splitter.cs" />
     <Compile Include="Spout.cs" />
